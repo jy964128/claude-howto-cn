@@ -880,3 +880,20 @@ MIT 许可证 - 参见 [LICENSE](LICENSE)。免费使用、修改和分发。唯
 - https://github.com/anthropics/claude-code/releases
 - https://github.com/anthropics/claude-code/releases/tag/v2.1.154
 **兼容模型**：Claude Sonnet 4.6、Claude Opus 4.8、Claude Haiku 4.5
+
+
+
+
+## 版权与许可
+本项目是 [claude-howto](https://github.com/luongnv89/claude-howto) 的中文翻译版本。  
+原始项目 © 2024 luongnv89，基于 [MIT 许可证](LICENSE) 发布。  
+翻译版本同样遵循 MIT 许可证，完整条款见 [LICENSE](LICENSE) 文件。
+
+
+## 关于本翻译项目
+由 [jy964128] 翻译并维护。  
+翻译工作仅为方便中文读者，原文版权归原作者所有。
+
+
+- 原始仓库：https://github.com/luongnv89/claude-howto
+- 本翻译仓库：https://github.com/jy964128/claude-howto-cn
