@@ -1,0 +1,103 @@
+```markdown
+# [METHOD] /api/v1/[endpoint]
+
+## 描述
+简要说明此端点的作用。
+
+## 认证
+所需的认证方式（例如 Bearer token）。
+
+## 参数
+
+### 路径参数
+| 名称 | 类型 | 必填 | 描述 |
+|------|------|----------|-------------|
+| id | string | Yes | 资源 ID |
+
+### 查询参数
+| 名称 | 类型 | 必填 | 描述 |
+|------|------|----------|-------------|
+| page | integer | No | 页码（默认：1） |
+| limit | integer | No | 每页条目数（默认：20） |
+
+### 请求体
+```json
+{
+  "field": "value"
+}
+```
+
+## 响应
+
+### 200 成功
+```json
+{
+  "success": true,
+  "data": {
+    "id": "123",
+    "name": "Example"
+  }
+}
+```
+
+### 400 请求错误
+```json
+{
+  "success": false,
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid input"
+  }
+}
+```
+
+### 404 未找到
+```json
+{
+  "success": false,
+  "error": {
+    "code": "NOT_FOUND",
+    "message": "Resource not found"
+  }
+}
+```
+
+## 示例
+
+### cURL
+```bash
+curl -X GET "https://api.example.com/api/v1/endpoint" \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json"
+```
+
+### JavaScript
+```javascript
+const response = await fetch('/api/v1/endpoint', {
+  headers: {
+    'Authorization': 'Bearer token',
+    'Content-Type': 'application/json'
+  }
+});
+const data = await response.json();
+```
+
+### Python
+```python
+import requests
+
+response = requests.get(
+    'https://api.example.com/api/v1/endpoint',
+    headers={'Authorization': 'Bearer token'}
+)
+data = response.json()
+```
+
+## 速率限制
+- 已认证用户每小时 1000 次请求
+- 公开端点每小时 100 次请求
+
+## 相关端点
+- [GET /api/v1/related](#)
+- [POST /api/v1/related](#)
+```
