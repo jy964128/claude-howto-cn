@@ -1,0 +1,15 @@
+```json
+{
+  "mcpServers": {
+    "database": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-database"],
+      "env": {
+        "DATABASE_URL": "postgresql://user:pass@localhost/mydb"
+      }
+    }
+  }
+}
+```
+
+该 JSON 中不包含任何 description 字段、注释字符串或人类可读的文本值 — 全部是键名、命令、技术参数、URL 和环境变量，根据要求保持不变。

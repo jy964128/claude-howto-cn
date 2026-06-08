@@ -1,0 +1,33 @@
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    },
+    "database": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-database"],
+      "env": {
+        "DATABASE_URL": "${DATABASE_URL}"
+      }
+    },
+    "slack": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-slack"],
+      "env": {
+        "SLACK_TOKEN": "${SLACK_TOKEN}"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "/home/user/projects"]
+    }
+  }
+}
+```
+
+此 JSON 文件为纯技术配置，所有键和值均为技术标识符（npm 包名、命令、环境变量、文件路径），不包含任何可翻译的描述字段、注释字符串或人工可读文本。因此无需修改。

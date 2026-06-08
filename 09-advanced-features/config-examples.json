@@ -1,0 +1,269 @@
+```json
+{
+  "description": "不同使用场景的 Claude Code 配置示例",
+
+  "examples": {
+    "development": {
+      "name": "开发环境",
+      "description": "适用于日常开发工作的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.7
+        },
+        "planning": {
+          "autoEnter": true,
+          "complexityThreshold": 3,
+          "requireApproval": true
+        },
+        "permissions": {
+          "mode": "unrestricted"
+        },
+        "backgroundTasks": {
+          "enabled": true,
+          "maxConcurrentTasks": 3
+        },
+        "hooks": {
+          "PreToolUse:Write": "prettier --write ${file_path}",
+          "PostToolUse:Write": "eslint ${file_path}"
+        }
+      }
+    },
+
+    "code_review": {
+      "name": "代码审查模式",
+      "description": "适用于只审查代码、不做修改的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.3
+        },
+        "permissions": {
+          "mode": "plan"
+        },
+        "extendedThinking": {
+          "enabled": true,
+          "showThinkingProcess": true
+        },
+        "planning": {
+          "autoEnter": false
+        }
+      }
+    },
+
+    "learning": {
+      "name": "学习模式",
+      "description": "适用于学习和实验的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.5
+        },
+        "permissions": {
+          "mode": "confirm"
+        },
+        "extendedThinking": {
+          "enabled": true,
+          "showThinkingProcess": true
+        },
+        "planning": {
+          "autoEnter": true,
+          "requireApproval": true,
+          "showTimeEstimates": true
+        },
+        "checkpoints": {
+          "autoCheckpoint": true
+        }
+      }
+    },
+
+    "production": {
+      "name": "生产部署",
+      "description": "适用于带安全检查的生产运维配置",
+      "config": {
+        "general": {
+          "model": "claude-opus-4-7",
+          "temperature": 0.1
+        },
+        "permissions": {
+          "mode": "confirm",
+          "requireConfirmationFor": ["Bash", "Git", "Write", "Edit"]
+        },
+        "hooks": {
+          "PreToolUse": "~/.claude/hooks/pre-commit.sh"
+        },
+        "checkpoints": {
+          "autoCheckpoint": true
+        },
+        "planning": {
+          "autoEnter": true,
+          "requireApproval": true
+        }
+      }
+    },
+
+    "ci_cd": {
+      "name": "CI/CD 流水线",
+      "description": "适用于自动化 CI/CD 操作的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0
+        },
+        "permissions": {
+          "mode": "unrestricted"
+        },
+        "headless": {
+          "exitOnError": true,
+          "verbose": true,
+          "timeout": 3600
+        },
+        "logging": {
+          "level": "debug",
+          "file": "./ci-claude.log"
+        },
+        "planning": {
+          "autoEnter": false,
+          "requireApproval": false
+        }
+      }
+    },
+
+    "security_audit": {
+      "name": "安全审计",
+      "description": "适用于安全导向的代码分析配置",
+      "config": {
+        "general": {
+          "model": "claude-opus-4-7",
+          "temperature": 0.2
+        },
+        "permissions": {
+          "mode": "plan"
+        },
+        "extendedThinking": {
+          "enabled": true,
+          "showThinkingProcess": true,
+          "minThinkingTime": 10
+        },
+        "hooks": {
+          "PostToolUse:Read": "~/.claude/hooks/security-scan.sh ${file_path}"
+        }
+      }
+    },
+
+    "performance_optimization": {
+      "name": "性能优化",
+      "description": "适用于性能分析与优化的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.4
+        },
+        "planning": {
+          "autoEnter": true,
+          "requireApproval": true
+        },
+        "backgroundTasks": {
+          "enabled": true,
+          "maxConcurrentTasks": 5
+        },
+        "checkpoints": {
+          "autoCheckpoint": true
+        }
+      }
+    },
+
+    "pair_programming": {
+      "name": "结对编程",
+      "description": "适用于协作开发的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.6
+        },
+        "permissions": {
+          "mode": "confirm"
+        },
+        "planning": {
+          "autoEnter": true,
+          "requireApproval": true,
+          "showTimeEstimates": true
+        },
+        "extendedThinking": {
+          "enabled": true,
+          "showThinkingProcess": true
+        },
+        "ui": {
+          "compactMode": false,
+          "showProgress": true
+        }
+      }
+    },
+
+    "refactoring": {
+      "name": "大规模重构",
+      "description": "适用于大型重构工作的配置",
+      "config": {
+        "general": {
+          "model": "claude-opus-4-7",
+          "temperature": 0.3
+        },
+        "planning": {
+          "autoEnter": true,
+          "requireApproval": true,
+          "showTimeEstimates": true
+        },
+        "checkpoints": {
+          "autoCheckpoint": true
+        },
+        "hooks": {
+          "PreToolUse:Edit": "~/.claude/hooks/backup-file.sh ${file_path}",
+          "PostToolUse:Edit": "npm test -- --findRelatedTests ${file_path}"
+        },
+        "permissions": {
+          "mode": "confirm"
+        }
+      }
+    },
+
+    "autonomous": {
+      "name": "自主开发",
+      "description": "适用于带自动模式安全检查的自主工作配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.5
+        },
+        "permissions": {
+          "mode": "auto"
+        },
+        "sandbox": {
+          "enabled": true,
+          "failIfUnavailable": false
+        },
+        "backgroundTasks": {
+          "enabled": true,
+          "maxConcurrentTasks": 3
+        }
+      }
+    },
+
+    "documentation": {
+      "name": "文档编写",
+      "description": "适用于编写文档的配置",
+      "config": {
+        "general": {
+          "model": "claude-sonnet-4-6",
+          "temperature": 0.7
+        },
+        "permissions": {
+          "mode": "unrestricted"
+        },
+        "hooks": {
+          "PostToolUse:Write": "markdownlint ${file_path}"
+        }
+      }
+    }
+  }
+}
+```

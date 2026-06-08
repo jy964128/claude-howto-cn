@@ -1,0 +1,11 @@
+```json
+{
+  "name": "pr-review",
+  "version": "1.0.0",
+  "description": "完整的 PR 审查工作流，涵盖安全、测试和文档",
+  "author": {
+    "name": "Anthropic"
+  },
+  "license": "MIT"
+}
+```

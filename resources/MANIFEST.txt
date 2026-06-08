@@ -1,0 +1,1 @@
+请批准写入操作，以便我将翻译后的文件保存到 `resources/MANIFEST.txt`。

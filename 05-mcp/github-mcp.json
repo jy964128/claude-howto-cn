@@ -1,0 +1,15 @@
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+This JSON contains no human-readable text to translate — all values are commands, package names, and environment variable references, which remain unchanged.

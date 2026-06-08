@@ -1,0 +1,10 @@
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-filesystem", "/home/user/projects"]
+    }
+  }
+}
+```

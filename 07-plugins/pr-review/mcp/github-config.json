@@ -1,0 +1,15 @@
+```json
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
+```
+
+此 JSON 中没有可翻译的内容 — 所有字段均为技术键名、命令、包名和环境变量引用，不包含描述字段、注释字符串或面向用户的文本。

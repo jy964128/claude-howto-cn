@@ -1,0 +1,13 @@
+```json
+{
+  "mcpServers": {
+    "kubernetes": {
+      "command": "npx",
+      "args": ["@modelcontextprotocol/server-kubernetes"],
+      "env": {
+        "KUBECONFIG": "${KUBECONFIG}"
+      }
+    }
+  }
+}
+```
